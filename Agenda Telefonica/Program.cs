@@ -30,7 +30,9 @@ namespace Agenda_Telefonica
                 Console.WriteLine("2.Buscar cotacto por nombre");
                 Console.WriteLine("3. Listar todos");
                 Console.WriteLine("4.Borrar un contacto");
-                Console.WriteLine("5.Salir");
+                Console.WriteLine("5.Bloqueo/Desbloqueo de contacto");
+                Console.WriteLine("6.Actualizar un contacto");
+                Console.WriteLine("7.Salir");
                 Console.Write("Que desear hacer el dia de hoy? ");
                 string eleccionUsuario = Console.ReadLine();
 
@@ -88,7 +90,62 @@ namespace Agenda_Telefonica
                         Console.WriteLine("Contacto no encontrado.");
                     }
                 }
-                else if (eleccionUsuario == "5")
+                else if(eleccionUsuario== "5")
+                {
+
+                    Console.Write("Quieres bloquear o desbloquear un contacto? (b/d): ");
+                    string accion = Console.ReadLine();
+
+                    if (accion == "b")
+                    {
+                        Console.Write("Ingrese el nombre del contacto a bloquear: ");
+                        string nombreBloquear = Console.ReadLine();
+                        if (Agenda.ContainsKey(nombreBloquear))
+                        {
+                            Agenda[nombreBloquear] = "bloqueado";
+                            Console.WriteLine("Contacto bloqueado exitosamente.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Contacto no encontrado.");
+                        }
+                    }
+                    else if (accion == "d")
+                    {
+                        Console.Write("Ingrese el nombre del contacto a desbloquear: ");
+                        string nombreDesbloquear = Console.ReadLine();
+                        if (Agenda.ContainsKey(nombreDesbloquear))
+                        {
+                            Console.Write("Ingrese el nuevo número de teléfono: ");
+                            string nuevoNumero = Console.ReadLine();
+                            Agenda[nombreDesbloquear] = nuevoNumero;
+                            Console.WriteLine("Contacto desbloqueado exitosamente.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Contacto no encontrado.");
+                        }
+
+                    }
+                   
+                }
+                else if (eleccionUsuario == "6")
+                {
+                    Console.Write("Ingrese el nombre del contacto a actualizar: ");
+                    string nombreActualizar = Console.ReadLine();
+                    if (Agenda.ContainsKey(nombreActualizar))
+                    {
+                        Console.Write("Ingrese el nuevo número de teléfono: ");
+                        string nuevoNumero = Console.ReadLine();
+                        Agenda[nombreActualizar] = nuevoNumero;
+                        Console.WriteLine("Contacto actualizado exitosamente.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Contacto no encontrado.");
+                    }
+                }
+                else if (eleccionUsuario == "7")
                 {
                     break;
                 }
