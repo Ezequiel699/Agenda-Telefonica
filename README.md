@@ -10,5 +10,7 @@ Los contactos se guardan en una lista interna usando nombre y teléfono.
 -Buscar un contacto por su nombre.
 -Listar todos los contactos guardados.
 -Eliminar un contacto.
+-Actualizar el numero de un contacto.
+-Bloquear/Desbloquear un contacto.
 -Salir del programa cuando termines.
 
